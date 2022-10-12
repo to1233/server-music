@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.music.dao.RankListMapper">
+
+    <select id="rankOfSongListId" resultType="java.lang.Integer">
+		SELECT COALESCE(sum(score),0) / COALESCE(count(id),0)
+		from rank_list
+		where song_sheet_id = #{songSheetId}
+	</select>
+
+
+</mapper>
