@@ -6,6 +6,7 @@ import com.example.music.service.ISingerService;
 import com.example.music.service.ISysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,11 @@ public class SingerController {
     @GetMapping("/findPageSinger")
     public AjaxResult findPageSinger(BasePageVo basePageVo) {
         return AjaxResult.ajaxResult(iSingerService.findSingerList(basePageVo));
+    }
+
+
+    @GetMapping("/singerInfoById/{singerId}")
+    public AjaxResult singerInfoById(@PathVariable("singerId") Integer singerId) {
+        return AjaxResult.ajaxResult(iSingerService.singerInfoById(singerId));
     }
 }

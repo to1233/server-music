@@ -26,4 +26,9 @@ public class SingerServiceImpl extends ServiceImpl<SingerMapper, Singer> impleme
         IPage<Singer> singerIPage = page(new Page<>(basePageVo.getPageNum(), basePageVo.getPageSize()),new QueryWrapper<>());
         return new PageVo<>(singerIPage,singerIPage.getRecords());
     }
+
+    @Override
+    public Singer singerInfoById(Integer singerId) {
+        return getBaseMapper().selectById(singerId);
+    }
 }

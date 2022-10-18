@@ -19,4 +19,11 @@ public interface ISingerService {
      * @return List
      */
     PageVo<Singer> findSingerList(BasePageVo basePageVo);
+
+    /**
+     *
+     * @param singerId
+     * @return
+     */
+    Singer singerInfoById(Integer singerId);
 }

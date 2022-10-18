@@ -29,8 +29,8 @@ public class SongController {
     }
 
     // 返回指定歌手ID的歌曲
-    @RequestMapping(value = "/singer/detail", method = RequestMethod.GET)
-    public AjaxResult songOfSingerId(Integer singerId) {
+    @GetMapping(value = "/singer/detail/{singerId}")
+    public AjaxResult songOfSingerId(@PathVariable("singerId") Integer singerId) {
         return AjaxResult.success("查询成功", iSongService.songOfSingerId(singerId));
     }
 
