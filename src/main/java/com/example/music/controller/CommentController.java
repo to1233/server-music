@@ -18,7 +18,7 @@ import static com.example.music.enums.CodeEnum.LIKE_FAIL;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/21 11:16
- * @Description
+ * @Description 评论列表
  */
 @RestController
 @RequestMapping("/comment")

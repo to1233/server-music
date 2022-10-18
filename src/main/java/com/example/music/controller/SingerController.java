@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/14 16:13
- * @Description
+ * @Description 歌手情况
  */
 @Slf4j
 @RequestMapping("/singer")

@@ -31,6 +31,13 @@ public interface ISysUserService {
      */
     SysUser findUserByPhone(String phone);
 
+    /**
+     * 根据用户名来查询用户信息
+     * @param userName 用户名
+     * @return SysUser 用户信息
+     */
+    SysUser findUserByUserName(String userName);
+
 
     /**
      * 根据用户信息创建出token
@@ -54,6 +61,20 @@ public interface ISysUserService {
      */
     SysUser findUserById(Integer userId);
 
+    /**
+     * 根据用户id来注销用户信息
+     * @param userId 用户主键
+     */
+    boolean cancelByUserId(Integer userId);
+
+
+    /**
+     * 校验密码
+     * @param userId 用户id
+     * @param password 密码
+     * @return boolean 校验结果
+     */
+    boolean verifyPassword(Integer userId, String password);
 
 
 }

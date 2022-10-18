@@ -14,7 +14,7 @@ public class LoginVo {
     /**
      * 用户手机号
      */
-    private String phone;
+    private String userName;
 
     /**
      * 密码
@@ -25,4 +25,9 @@ public class LoginVo {
      * 验证码
      */
     private String code;
+
+    /**
+     * 手机号
+     */
+    private String phone;
 }

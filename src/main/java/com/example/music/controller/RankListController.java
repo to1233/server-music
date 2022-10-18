@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/21 15:43
- * @Description
+ * @Description 每个歌单的得分情况
  */
 @RequestMapping("/rankList")
 @RestController

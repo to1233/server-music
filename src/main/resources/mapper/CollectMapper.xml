@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.music.dao.CollectMapper">
+
+    <select id="findCollectInfo" resultType="com.example.music.domain.vo.song.SongInfoVo">
+	select aim_song.*,singer.name as singerName
+		from
+		(
+			SELECT
+			song.*
+		FROM
+			( SELECT song_id FROM collect WHERE user_id = #{userId} ) a
+			LEFT JOIN song ON a.song_id = song.id
+			)aim_song left join singer on aim_song.singer_id = singer.id
+	</select>
+
+
+</mapper>

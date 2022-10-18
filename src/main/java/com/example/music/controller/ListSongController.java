@@ -3,6 +3,7 @@ package com.example.music.controller;
 import com.example.music.common.AjaxResult;
 import com.example.music.domain.entity.ListSong;
 import com.example.music.service.IListSongService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,9 @@ import static com.example.music.enums.CodeEnum.*;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/20 9:35
- * @Description
+ * @Description 歌曲与歌单关系处理器
  */
+@Slf4j
 @RequestMapping("/listSong")
 @RestController
 public class ListSongController {
@@ -44,6 +46,9 @@ public class ListSongController {
             return AjaxResult.error(DELETE_FAIL);
         }
     }
+
+
+
 
     @GetMapping("/detail")
     public AjaxResult listSongOfSongId(Integer songListId) {

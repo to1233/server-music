@@ -8,7 +8,7 @@ import java.util.List;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/20 9:37
- * @Description
+ * @Description 歌曲与歌单关系接口
  */
 public interface IListSongService {
 

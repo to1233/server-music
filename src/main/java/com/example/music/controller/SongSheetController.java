@@ -19,7 +19,7 @@ import java.io.File;
  * @author zhangyang
  * @version 1.0
  * @Date 2022/8/14 15:54
- * @Description
+ * @Description 歌单列表
  */
 @Slf4j
 @RequestMapping("/songSheet")
@@ -59,6 +59,8 @@ public class SongSheetController {
     }
 
 
+
+
     /**
      * 获取指定歌单的评分
      * @param sheetId 歌单id
@@ -81,8 +83,8 @@ public class SongSheetController {
         }
     }
 
-    @GetMapping("/likeTitle/detail")
-    public AjaxResult songListOfLikeTitle(String title) {
+    @GetMapping("/likeTitle/{title}")
+    public AjaxResult songListOfLikeTitle(@PathVariable("title") String title) {
         return AjaxResult.success("查询成功", iSongSheetService.likeTitle(title));
     }
 

@@ -14,5 +14,18 @@ FROM
 	LEFT JOIN singer ON song.singer_id = singer.id
 	</select>
 
+	<select id="songOfSingerName" resultType="com.example.music.domain.vo.song.SongInfoVo">
+
+SELECT
+	song.*,
+	aimSinger.NAME AS singerName
+FROM
+	( SELECT * FROM singer WHERE name like  #{singerName} ) aimSinger
+	LEFT JOIN song ON aimSinger.id = song.singer_id
+	</select>
+
+
+
+
 
 </mapper>

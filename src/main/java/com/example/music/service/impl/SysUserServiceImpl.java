@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.music.dao.SysUserMapper;
 import com.example.music.domain.entity.SysUser;
+import com.example.music.enums.DataStatusEnum;
 import com.example.music.service.CacheService;
 import com.example.music.service.ISysUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-import static com.example.music.constant.SysConstant.DbColumnKey.PHONE;
+import static com.example.music.constant.SysConstant.DbColumnKey.*;
 
 /**
  * @author zhangyang
@@ -40,7 +41,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public SysUser findUserByPhone(String phone) {
-        return getBaseMapper().selectOne(new QueryWrapper<SysUser>().eq(PHONE, phone));
+        return getBaseMapper().selectOne(new QueryWrapper<SysUser>().eq(PHONE_NUM, phone));
+    }
+
+    @Override
+    public SysUser findUserByUserName(String userName) {
+        return getBaseMapper().selectOne(new QueryWrapper<SysUser>().eq(USER_NAME, userName));
     }
 
     @Override
@@ -60,8 +66,23 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return getBaseMapper().selectById(userId);
     }
 
+    @Override
+    public boolean cancelByUserId(Integer userId) {
+        SysUser sysUser = new SysUser();
+        sysUser.setId(userId);
+        sysUser.setIsDeleted(DataStatusEnum.NO_USING.getStatus());
+        return getBaseMapper().updateById(sysUser) > 0;
+    }
+
+    @Override
+    public boolean verifyPassword(Integer userId, String password) {
+        return getBaseMapper().selectCount(new QueryWrapper<SysUser>().eq(ID, userId).eq(PASSWORD, password)) > 0;
+    }
+
     private String getToken() {
         int temp = (int) (Math.random() * 1000);
         return String.valueOf(temp);
     }
+
+
 }

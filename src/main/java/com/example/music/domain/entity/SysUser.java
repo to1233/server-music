@@ -1,5 +1,6 @@
 package com.example.music.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ public class SysUser {
 
     private Integer id;
 
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -36,4 +37,11 @@ public class SysUser {
     private Date createTime;
 
     private Date updateTime;
+
+    /**
+     * 逻辑删除（1：已删除，0：未删除）
+     */
+    @TableLogic
+    private Integer isDeleted;
+
 }

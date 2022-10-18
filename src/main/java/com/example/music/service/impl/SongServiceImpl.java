@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.music.dao.SongMapper;
 import com.example.music.domain.entity.Song;
+import com.example.music.domain.vo.song.SongInfoVo;
 import com.example.music.service.ISongService;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,12 @@ public class SongServiceImpl extends ServiceImpl<SongMapper, Song> implements IS
     }
 
     @Override
-    public List<Song> findSongListBySheetId(Integer sheetId) {
+    public List<SongInfoVo> findSongListBySheetId(Integer sheetId) {
         return songMapper.findSongListBySheetId(sheetId);
+    }
+
+    @Override
+    public List<SongInfoVo> songOfSingerName(String singerName) {
+        return songMapper.songOfSingerName(singerName);
     }
 }

@@ -29,8 +29,8 @@ public class SysConstant {
 
     @NoArgsConstructor(access =  AccessLevel.PRIVATE)
     public static class DbColumnKey {
-        public static final String NAME = "name";
-        public static final String PHONE = "phone";
+        public static final String USER_NAME = "user_name";
+        public static final String PHONE_NUM = "phone_num";
         public static final String SONG_ID = "song_id";
         public static final String SONG_LIST_ID = "song_list_id";
         public static final String SINGER_ID = "singer_id";
@@ -38,5 +38,7 @@ public class SysConstant {
         public static final String TITLE = "title";
         public static final String CONSUMER_ID = "consumer_id";
         public static final String SCORE = "score";
+        public static final String ID = "id";
+        public static final String PASSWORD = "password";
     }
 }
