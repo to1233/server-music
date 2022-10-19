@@ -19,7 +19,7 @@ public class SysConstant {
     public static final String TOKEN = "token";
 
     /* 歌曲图片，歌手图片，歌曲文件，歌单图片等文件的存放路径 */
-    public static String PROJECT_PATH = System.getProperty("user.dir");
+    public static String PROJECT_PATH = "/www/wwwroot/music-server";
 
     public static String AVATOR_IMAGES_PATH = "file:" + PROJECT_PATH + "/img/avatorImages/";
     public static String SONGLIST_PIC_PATH = "file:" + PROJECT_PATH + "/img/songListPic/";

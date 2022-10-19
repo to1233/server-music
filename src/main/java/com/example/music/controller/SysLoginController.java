@@ -39,6 +39,7 @@ public class SysLoginController {
      */
     @PostMapping("/loginByUserName")
     public AjaxResult login(@RequestBody LoginVo loginVo) {
+
         SysUser sysUser = iSysUserService.findUserByUserName(loginVo.getUserName());
         if (sysUser == null) {
             return AjaxResult.error(CodeEnum.NOT_USER_NAME);
